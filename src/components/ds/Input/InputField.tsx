@@ -10,7 +10,7 @@ export function InputField({ type, id }: InputFieldProps) {
         <input
             type={type}
             id={id}
-            className="py-1 px-4 rounded-md border border-gray-600 bg-gray-950 text-sm"
+            className="py-1 px-4 rounded-md border border-gray-600 bg-gray-950 text-sm focus:outline-2 focus:outline-blue-500"
         />
     )
 }

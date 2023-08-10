@@ -2,9 +2,11 @@
 
 import { GitSymbol } from "@components/GitSymbol"
 import { ErrorBox } from "@components/ds/ErrorBox"
-import { LoginForm } from "./components/LoginForm"
-import { CreateAccount } from "./components/CreateAccount"
+import { LoginForm } from "../components/LoginForm"
+import { Footer } from "../components/Footer"
 import { useState } from "react"
+import { HeaderTitle } from "../components/HeaderTitle"
+import Link from "next/link"
 
 export default function LoginPage() {
     const [isErrorVisible, setIsErrorVisible] = useState(false)
@@ -14,11 +16,8 @@ export default function LoginPage() {
     }
 
     return (
-        <div className="h-screen flex flex-col justify-start items-center py-10 gap-4 w-80 mx-auto">
-            <div className="flex flex-col items-center gap-8">
-                <GitSymbol className="w-12 fill-gray-50" />
-                <h3 className="text-xl font-light">Sign in to GitHub</h3>
-            </div>
+        <>
+            <HeaderTitle title="Sign in to GitHub" />
 
             {isErrorVisible && (
                 <ErrorBox
@@ -27,7 +26,14 @@ export default function LoginPage() {
                 />
             )}
             <LoginForm />
-            <CreateAccount />
-        </div>
+            <Footer>
+                <p>
+                    New to GitHub? &nbsp;
+                    <Link href="signup" className="text-blue-700">
+                        Create an account.
+                    </Link>
+                </p>
+            </Footer>
+        </>
     )
 }
